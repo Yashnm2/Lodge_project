@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cute Fusion Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css?v=7" />
+</head>
+<body>
+  <div class="bg-mesh"></div>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <main class="app">
+
+    <!-- ========== TABS ========== -->
+    <div class="tab-bar">
+      <button class="tab-btn active" data-tab="combine">Future Kid</button>
+      <button class="tab-btn" data-tab="effects">Apply Effects</button>
+    </div>
+
+    <!-- ========== TAB: COMBINE ========== -->
+    <section class="section tab-panel active" id="panelCombine" data-tab="combine">
+      <div class="section-header">
+        <h1 class="section-title">Future Kid</h1>
+        <p class="section-sub">Upload two parent photos and see what their child would look like.</p>
+      </div>
+
+      <div class="upload-row">
+        <div class="dz-wrapper">
+          <label class="dropzone" id="dropA" tabindex="0">
+            <input type="file" id="personA" accept="image/*" />
+            <div class="dz-empty">
+              <div class="dz-icon">
+                <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+              </div>
+              <span class="dz-label">Person A</span>
+              <span class="dz-hint">Click or drag photo</span>
+            </div>
+            <img id="previewA" class="dz-preview" alt="" />
+            <button type="button" class="dz-clear" id="clearA">&times;</button>
+          </label>
+          <button type="button" class="cam-btn" data-target="personA" title="Take photo">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Z"/></svg>
+          </button>
+        </div>
+
+        <div class="dz-wrapper">
+          <label class="dropzone" id="dropB" tabindex="0">
+            <input type="file" id="personB" accept="image/*" />
+            <div class="dz-empty">
+              <div class="dz-icon">
+                <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+              </div>
+              <span class="dz-label">Person B</span>
+              <span class="dz-hint">Click or drag photo</span>
+            </div>
+            <img id="previewB" class="dz-preview" alt="" />
+            <button type="button" class="dz-clear" id="clearB">&times;</button>
+          </label>
+          <button type="button" class="cam-btn" data-target="personB" title="Take photo">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="options-grid">
+        <div class="option-group">
+          <span class="option-label">Gender</span>
+          <div class="toggle-group" data-name="combineGender">
+            <button type="button" class="toggle-btn active" data-value="">Any</button>
+            <button type="button" class="toggle-btn" data-value="male">Boy</button>
+            <button type="button" class="toggle-btn" data-value="female">Girl</button>
+          </div>
+        </div>
+        <div class="option-group">
+          <span class="option-label">Hair length</span>
+          <div class="toggle-group" data-name="combineHair">
+            <button type="button" class="toggle-btn active" data-value="">Any</button>
+            <button type="button" class="toggle-btn" data-value="short">Short</button>
+            <button type="button" class="toggle-btn" data-value="medium">Medium</button>
+            <button type="button" class="toggle-btn" data-value="long">Long</button>
+          </div>
+        </div>
+        <div class="option-group">
+          <span class="option-label">Skin tone</span>
+          <div class="toggle-group" data-name="combineSkin">
+            <button type="button" class="toggle-btn active" data-value="">Blend</button>
+            <button type="button" class="toggle-btn" data-value="light">Light</button>
+            <button type="button" class="toggle-btn" data-value="medium">Medium</button>
+            <button type="button" class="toggle-btn" data-value="dark">Dark</button>
+          </div>
+        </div>
+        <div class="option-group">
+          <span class="option-label">Eye size</span>
+          <div class="toggle-group" data-name="combineEyes">
+            <button type="button" class="toggle-btn active" data-value="">Natural</button>
+            <button type="button" class="toggle-btn" data-value="small">Small</button>
+            <button type="button" class="toggle-btn" data-value="large">Large</button>
+          </div>
+        </div>
+        <div class="option-group">
+          <span class="option-label">Nose size</span>
+          <div class="toggle-group" data-name="combineNose">
+            <button type="button" class="toggle-btn active" data-value="">Natural</button>
+            <button type="button" class="toggle-btn" data-value="small">Small</button>
+            <button type="button" class="toggle-btn" data-value="large">Large</button>
+          </div>
+        </div>
+        <div class="option-group">
+          <span class="option-label">Ear size</span>
+          <div class="toggle-group" data-name="combineEars">
+            <button type="button" class="toggle-btn active" data-value="">Natural</button>
+            <button type="button" class="toggle-btn" data-value="small">Small</button>
+            <button type="button" class="toggle-btn" data-value="large">Large</button>
+          </div>
+        </div>
+        <div class="option-group">
+          <span class="option-label">Cheekbones</span>
+          <div class="toggle-group" data-name="combineCheekbones">
+            <button type="button" class="toggle-btn active" data-value="">Natural</button>
+            <button type="button" class="toggle-btn" data-value="subtle">Subtle</button>
+            <button type="button" class="toggle-btn" data-value="defined">Defined</button>
+          </div>
+        </div>
+        <div class="option-group">
+          <span class="option-label">Jawline</span>
+          <div class="toggle-group" data-name="combineJawline">
+            <button type="button" class="toggle-btn active" data-value="">Natural</button>
+            <button type="button" class="toggle-btn" data-value="soft">Soft</button>
+            <button type="button" class="toggle-btn" data-value="defined">Defined</button>
+          </div>
+        </div>
+      </div>
+
+      <button id="combineBtn" class="btn btn-combine" disabled>
+        <span class="btn-label">Generate Kid</span>
+        <span class="btn-loading"><span class="spinner"></span>Combining&hellip;</span>
+      </button>
+    </section>
+
+    <!-- ========== TAB: EFFECTS ========== -->
+    <section class="section tab-panel" id="panelEffects" data-tab="effects">
+      <div class="section-header">
+        <h1 class="section-title">Apply Effects</h1>
+        <p class="section-sub">Upload a portrait and pick a character transformation.</p>
+      </div>
+
+      <div class="upload-row upload-single">
+        <div class="dz-wrapper">
+          <label class="dropzone" id="dropFx" tabindex="0">
+            <input type="file" id="personFx" accept="image/*" />
+            <div class="dz-empty">
+              <div class="dz-icon">
+                <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+              </div>
+              <span class="dz-label">Your Photo</span>
+              <span class="dz-hint">Click or drag photo</span>
+            </div>
+            <img id="previewFx" class="dz-preview" alt="" />
+            <button type="button" class="dz-clear" id="clearFx">&times;</button>
+          </label>
+          <button type="button" class="cam-btn" data-target="personFx" title="Take photo">
+            <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="options-row">
+        <div class="option-group">
+          <span class="option-label">Gender</span>
+          <div class="toggle-group" data-name="fxGender">
+            <button type="button" class="toggle-btn active" data-value="">Any</button>
+            <button type="button" class="toggle-btn" data-value="male">Male</button>
+            <button type="button" class="toggle-btn" data-value="female">Female</button>
+          </div>
+        </div>
+        <div class="option-group">
+          <span class="option-label">Hair length</span>
+          <div class="toggle-group" data-name="fxHair">
+            <button type="button" class="toggle-btn active" data-value="">Any</button>
+            <button type="button" class="toggle-btn" data-value="short">Short</button>
+            <button type="button" class="toggle-btn" data-value="medium">Medium</button>
+            <button type="button" class="toggle-btn" data-value="long">Long</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="effectsGrid" class="effects-grid"></div>
+
+      <button id="generateBtn" class="btn btn-generate" disabled>
+        <span class="btn-label">Generate Image</span>
+        <span class="btn-loading"><span class="spinner"></span>Generating&hellip; 15-30s</span>
+      </button>
+    </section>
+
+    <!-- ========== STATUS ========== -->
+    <p id="status" class="status-msg"></p>
+
+    <!-- ========== RESULT ========== -->
+    <section class="section result-section" id="resultSection">
+      <div class="section-header">
+        <h1 class="section-title">Your Result</h1>
+        <p class="section-sub" id="resultSub">Generated image will appear here.</p>
+      </div>
+
+      <div class="result-frame" id="resultFrame">
+        <div class="result-empty" id="resultEmpty">
+          <span>Upload photos and combine or apply an effect</span>
+        </div>
+        <img id="resultImage" alt="Generated portrait" />
+      </div>
+
+      <div class="result-btns" id="resultBtns">
+        <a id="downloadLink" class="btn btn-download" download="fusion-result.png">Download PNG</a>
+        <button id="regenerateBtn" class="btn btn-regen" type="button">Regenerate</button>
+      </div>
+
+      <div class="tg-send" id="tgSend">
+        <button type="button" id="tgQrBtn" class="btn btn-tg-qr">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="3" height="3"/><line x1="21" y1="14" x2="21" y2="17"/><line x1="17" y1="21" x2="21" y2="21"/></svg>
+          Send via Telegram
+        </button>
+        <p class="tg-hint" id="tgHint"></p>
+      </div>
+
+    </section>
+
+    <footer class="footer">Cute Fusion Lab &mdash; AI Face Fusion powered by gpt-4o-image</footer>
+  </main>
+
+  <!-- ========== QR MODAL ========== -->
+  <div class="qr-modal" id="qrModal">
+    <div class="qr-modal-content">
+      <button type="button" class="qr-close" id="qrClose">&times;</button>
+      <h2>Scan to receive on Telegram</h2>
+      <p class="qr-instructions">Open your phone camera or Telegram's QR scanner and point it at this code.</p>
+      <div id="qrCanvas" class="qr-canvas"></div>
+      <p class="qr-bot-name" id="qrBotName"></p>
+    </div>
+  </div>
+
+  <!-- ========== CAMERA MODAL ========== -->
+  <div class="cam-modal" id="camModal">
+    <video class="cam-video" id="camVideo" autoplay playsinline></video>
+    <div class="cam-actions">
+      <button type="button" class="cam-capture" id="camCapture">Take Photo</button>
+      <button type="button" class="cam-cancel" id="camCancel">Cancel</button>
+    </div>
+  </div>
+  <canvas id="camCanvas" style="display:none"></canvas>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="./app.js?v=10"></script>
+</body>
+</html>
