@@ -67,6 +67,7 @@ let lastFilename = null;
 
 // ---- Toggle groups (gender + hair per tab) ----
 const toggleState = {
+  combineAge: "kid",
   combineGender: "",
   combineHair: "",
   combineSkin: "",
@@ -309,7 +310,11 @@ setupDrop(dropA, personAInput, previewA, clearA);
 setupDrop(dropB, personBInput, previewB, clearB);
 setupDrop(dropFx, personFxInput, previewFx, clearFx);
 
-combineBtn.addEventListener("click", () => callGenerate("merge", combineBtn, "combine"));
+combineBtn.addEventListener("click", () => {
+  const ageMap = { baby: "merge_baby", kid: "merge", adult: "merge_adult" };
+  const mode = ageMap[toggleState.combineAge] || "merge";
+  callGenerate(mode, combineBtn, "combine");
+});
 generateBtn.addEventListener("click", () => { if (selectedEffect) callGenerate(selectedEffect, generateBtn, "effects"); });
 regenerateBtn.addEventListener("click", () => { if (lastMode && lastTab) callGenerate(lastMode, regenerateBtn, lastTab); });
 

@@ -21,17 +21,32 @@ def build_prompts(
     if single:
         instruction_text = _to_single(instruction_text)
 
+    # Determine the subject word for combine presets
+    if preset.key == "merge_baby":
+        subject = "baby"
+    elif preset.key == "merge_adult":
+        subject = "person"
+    else:
+        subject = "child"
+
     # Append gender hint
     if gender in ("male", "female"):
         if preset.category == "combine":
-            gender_word = "boy" if gender == "male" else "girl"
-            instruction_text += f" The child should be a {gender_word}."
+            if subject == "baby":
+                gender_word = "boy" if gender == "male" else "girl"
+                instruction_text += f" The baby should be a {gender_word}."
+            elif subject == "person":
+                gender_word = "man" if gender == "male" else "woman"
+                instruction_text += f" The person should be a {gender_word}."
+            else:
+                gender_word = "boy" if gender == "male" else "girl"
+                instruction_text += f" The child should be a {gender_word}."
         else:
             instruction_text += f" The resulting person should be {gender}."
 
     # Append hair length hint
     if hair in ("short", "medium", "long"):
-        instruction_text += f" The child should have {hair} hair."
+        instruction_text += f" The {subject} should have {hair} hair."
 
     # Append facial feature hints (primarily for combine/kid mode)
     if facial_features:
@@ -88,7 +103,7 @@ def _build_feature_hints(features: dict) -> str:
     if not hints:
         return ""
 
-    return "The child should have " + ", ".join(hints) + "."
+    return "They should have " + ", ".join(hints) + "."
 
 
 def _to_single(text: str) -> str:

@@ -33,6 +33,43 @@ PRESETS: dict[str, GenerationPreset] = {
             "professional family photography, natural skin texture, sharp focus on the child's face."
         ),
     ),
+    "merge_baby": GenerationPreset(
+        key="merge_baby",
+        title="Future Baby",
+        icon="\U0001F476",
+        category="combine",
+        description="Generate what their baby would look like.",
+        instruction=(
+            "These two photos are the parents. Create a photorealistic portrait of their "
+            "adorable baby (around 6-12 months old). The baby's face must clearly "
+            "inherit features from BOTH parents — blend their eye shapes, nose structure, "
+            "skin tone, and face shape into a believable baby's face. "
+            "The baby should have chubby cheeks, big bright eyes, a sweet innocent "
+            "expression, and soft wispy hair."
+        ),
+        style_hint=(
+            "Warm soft portrait lighting, pastel-toned cozy nursery background, shallow depth of field, "
+            "professional newborn photography, smooth soft baby skin, sharp focus on the baby's face."
+        ),
+    ),
+    "merge_adult": GenerationPreset(
+        key="merge_adult",
+        title="Future Adult",
+        icon="\U0001F9D1",
+        category="combine",
+        description="Generate what their adult child would look like.",
+        instruction=(
+            "These two photos are the parents. Create a photorealistic portrait of their "
+            "grown-up child as a young adult (around 25-30 years old). The adult's face must clearly "
+            "inherit features from BOTH parents — blend their eye shapes, nose structure, "
+            "jawline, skin tone, and hair characteristics into a believable adult face. "
+            "The person should look naturally attractive with a confident, warm expression."
+        ),
+        style_hint=(
+            "Natural golden-hour portrait lighting, clean modern background, shallow depth of field, "
+            "professional headshot photography, natural skin texture, sharp focus on the face."
+        ),
+    ),
 
     # ---- EFFECTS ----
     "trump": GenerationPreset(
